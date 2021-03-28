@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 
-const Instructions = ()=>{
+const FirstInstructions = ()=>{
   const history = useHistory();
 
   const handleCountinue = ()=>{
@@ -33,4 +33,4 @@ const Instructions = ()=>{
   );
 }
 
-export default Instructions;
+export default FirstInstructions;
