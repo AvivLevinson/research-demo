@@ -1,34 +1,22 @@
-import React, { useState, useEffect } from "react";
-
-
-
-
-const useAudio = (url) => {
-  const [audio] = useState(new Howl({src: [url]}));
-  const [playing, setPlaying] = useState(false);
-
-  const toggle = () => setPlaying(!playing);
-
-  useEffect(() => {
-    playing ? audio.play() : audio.stop();
-  }, [playing]);
-
-/**  useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(false));
-    return () => {
-      audio.removeEventListener("ended", () => setPlaying(false));
-    };
-  }, []);
- */
-  return [playing, toggle];
-};
+import React,{useEffect} from "react";
+//import audio_test_mp3 from '../../constent/audio/audio_test.mp3';
 
 const PlayerSound = ({ url }) => {
-  const [playing, toggle] = useAudio(url);
+  let audio = new Audio(url);
+
+  useEffect(()=>{
+    console.log('Player Sound useEffect');
+    audio.play();
+
+    return function cleanupListener() {
+      console.log("clean up useEffect Word");
+      audio.pause();
+    };
+  },[]);
 
   return (
     <div>
-      <button onClick={toggle}>{playing ? "Pause" : "Play"}</button>
+      <p>play audio</p>
     </div>
   );
 };

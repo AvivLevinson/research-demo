@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 
-import handlePress from "../../utils/handle-press.js";
+import './ExampleWord.css';
 
 import { exampleWords } from "../../constent/word";
 
 import Word from "../../components/Word";
+import Counter from "../../components/Counter";
+
+import reducer from '../../reducer/words/reducer.js'
 
 const ExampleWord = () => {
+  const [state, dispatch] = useReducer(reducer,[])
+  const [visibleCunter, setVisibleCounter] = useState(true);
+
   const history = useHistory();
   //const [start, setStart] = useState(new Date().getTime());
   //const [time, setTime] = useState(0);
   const [index, setIndex] = useState(0);
 
 
+  console.log(state);
+  
   const handleCountinue = () => {
     history.push("/example-audio");
   };
@@ -29,6 +37,7 @@ const ExampleWord = () => {
       history.push("/example-audio");
     }
   });
+
 
 
 
@@ -63,14 +72,26 @@ const ExampleWord = () => {
   }); */
 
   return (
-    <div>
-      <h1>ExampleWord page</h1>
-      <Word words={exampleWords} index={index} setIndex={setIndex}/>
-      <div>
+    <>
+    {visibleCunter ? (<div className="container">
+      <h1>הדגמה תחל בעוד</h1>
+      < Counter setVisibleCounter={setVisibleCounter}/>
+
+    </div> ) : (
+      <div className="container">     
+       <Word words={exampleWords} index={index} setIndex={setIndex} dispatch={dispatch}/>
+       
+       <h4>לחץ ימני = אדום</h4>
+       <h4>לחץ שמאלי = כחול</h4>
+       <div>
         <button onClick={handleCountinue}>continue</button>
         <button onClick={handleBack}>back</button>
       </div>
-    </div>
+       </div>
+      ) 
+    }
+    
+  </>
   );
 };
 

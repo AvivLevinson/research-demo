@@ -1,32 +1,36 @@
-import React from 'react';
+import React from "react";
 
-import {useHistory} from 'react-router-dom';
+import "./Home.css";
 
+import { useHistory } from "react-router-dom";
 
-const Home = ()=>{
+const Home = () => {
   const history = useHistory();
 
-  const handleCountinue = ()=>{
-    history.push('/instruction');
+  const handleCountinue = () => {
+    history.push("/instruction");
+  };
 
-  }
-
-  const handleBack = ()=>{
-    
-  }
 
   return (
-    <div> 
-      <h1>homse page</h1>
+    <div className='container'>
+      <h1>שלום לך, אנו שמחות שבחרת לקחת חלק בניסוי שלנו.</h1>
+      <h3>
+        הניסוי נערך כחלק מעבודת התואר שלנו בחוג לקלינאות תקשורת במכללת אחווה.
+        בניסוי שלפניך יש 2 חלקים, לפני כל חלק יופיעו הוראות ברורות.
+      </h3>
+      <h4>במידה ויש שאלות מכל סוג שהוא ניתן לפנות אלינו בטלפון</h4>
+      <div className ='containerContect'>
+        <li>0549155905- שחף</li>
+        <li>0506877588- שלי</li>
+        <li>0503440042- נופר</li>
+      </div>
 
-      
-      
-      <div>
-      <button onClick ={handleCountinue}>continue</button>  
-      <button onClick ={handleBack}>back</button>  
-      </div>      
+      <div className ='containerButton'>
+        <button onClick={handleCountinue}>המשך</button>
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

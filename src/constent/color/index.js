@@ -1,1 +1,1 @@
-export const COLOR = {red:'red', blue:'blue'};
+export const COLOR = ['red','blue'];
