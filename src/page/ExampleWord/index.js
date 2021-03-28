@@ -9,21 +9,33 @@ import Word from "../../components/Word";
 
 const ExampleWord = () => {
   const history = useHistory();
-  const [start, setStart] = useState(new Date().getTime());
-  const [time, setTime] = useState(0);
+  //const [start, setStart] = useState(new Date().getTime());
+  //const [time, setTime] = useState(0);
   const [index, setIndex] = useState(0);
 
-  console.log(exampleWords);
 
   const handleCountinue = () => {
-    history.push("/exapmle-audio");
+    history.push("/example-audio");
   };
 
   const handleBack = () => {
     history.goBack();
   };
 
-  const handleEvent = (event) => {
+  useEffect(()=>{
+    console.log('useEffect Example Page');
+
+    if (index  === 5) {
+      history.push("/example-audio");
+    }
+  });
+
+
+
+  
+  
+
+/**  const handleEvent = (event) => {
     const { key, end } = handlePress(event);
     console.log("this is key:", key);
     console.log("this is end:", end);
@@ -45,14 +57,15 @@ const ExampleWord = () => {
     console.log("inside useEffect ExampleWord");
 
     return function cleanupListener() {
+      console.log("inside clean up function");
       window.removeEventListener("keydown", handleEvent);
     };
-  });
+  }); */
 
   return (
     <div>
       <h1>ExampleWord page</h1>
-      <Word words={exampleWords} index={index} />
+      <Word words={exampleWords} index={index} setIndex={setIndex}/>
       <div>
         <button onClick={handleCountinue}>continue</button>
         <button onClick={handleBack}>back</button>

@@ -3,9 +3,11 @@ import {useHistory} from 'react-router-dom';
 
 import handlePress from '../../utils/handle-press.js';
 
-import soundfile from '../../constent/audio/audio_test.mp3';
+//import audio_test from '../../constent/audio/audio_test.mp3';
 
-import PlayerSound from '../../components/PlayerSound';
+//import PlayerSound from '../../components/PlayerSound';
+
+import Sound from '../../components/Sound';
 
 
 const ExampleAudio = ()=>{
@@ -23,7 +25,7 @@ const ExampleAudio = ()=>{
 
   useEffect(()=>{
     window.addEventListener("keydown", handlePress);
-    console.log('inside useEffect ExampleWord');
+    console.log('inside useEffect Example Audio');
 
     return function cleanupListener() {
       window.removeEventListener('keydown', handlePress);
@@ -36,7 +38,7 @@ const ExampleAudio = ()=>{
     <div> 
       <h1>ExampleAudio page</h1>
       <div>
-      <PlayerSound url ={soundfile}/>
+      <Sound url={"test"}/>
       <button onClick ={handleCountinue}>continue</button>  
       <button onClick ={handleBack}>back</button>  
       </div>      
@@ -45,3 +47,18 @@ const ExampleAudio = ()=>{
 }
 
 export default ExampleAudio;
+
+/*
+  return (
+    <div> 
+      <h1>ExampleAudio page</h1>
+      <div>
+      <Sound/>
+      <PlayerSound url ={audio_test}/>
+      <button onClick ={handleCountinue}>continue</button>  
+      <button onClick ={handleBack}>back</button>  
+      </div>      
+    </div>
+  );
+
+*/ 
