@@ -25,6 +25,13 @@ const Word = ({ words, index, setIndex, dispatch }) => {
   myColorRef.current = color;
   myIndexRef.current = index;
   myStateRef.current = start;
+  
+  const mystyle  ={
+    color:myColorRef.current,
+    fontSize: 50,
+
+  }
+
 
   const handleEvent = (event) => {
     const color = myColorRef.current;
@@ -70,7 +77,7 @@ const Word = ({ words, index, setIndex, dispatch }) => {
 
   return (
     <div>
-      <p style={{color: myColorRef.current}}>{words[index]}</p>
+      <p style={mystyle}>{words[index]}</p>
     </div>
   );
 };

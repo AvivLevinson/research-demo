@@ -1,1 +1,1 @@
-export const exampleAudioMp3 = ['audio_test.mp3'];
+export const exampleAudioMp3 = ['audio_test.mp3','audio_test.mp3','audio_test.mp3','audio_test.mp3','audio_test.mp3'];

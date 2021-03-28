@@ -1,49 +1,77 @@
-import React,{useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
-
-import handlePress from '../../utils/handle-press.js';
-
-import {exampleAudioMp3} from '../../constent/audio';
-
-import PlayerSound from '../../components/PlayerSound';
+import React, { useEffect, useReducer, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 
-const ExampleAudio = ()=>{
+import { exampleAudioMp3 } from "../../constent/audio";
+
+import PlayerSound from "../../components/PlayerSound";
+
+import Counter from "../../components/Counter";
+
+import reducer from "../../reducer/audio/reducer.js";
+
+const ExampleAudio = () => {
   const history = useHistory();
+  const [state, dispatch] = useReducer(reducer, []);
+  const [visibleCunter, setVisibleCounter] = useState(true);
+  const [index, setIndex] = useState(0);
 
-  console.log(exampleAudioMp3);
+  console.log(state);
 
-  const handleCountinue = ()=>{
-    history.push('/first-research');
+  const handleCountinue = () => {
+    history.push("/first-research");
+  };
 
-  }
-
-  const handleBack = ()=>{
+  const handleBack = () => {
     history.goBack();
-  }
-
+  };
 
   useEffect(()=>{
-    window.addEventListener("keydown", handlePress);
-    console.log('inside useEffect Example Audio');
+    console.log('useEffect Example Page');
 
-    return function cleanupListener() {
-      window.removeEventListener('keydown', handlePress);
-    } 
-
-
+    if (index  === 5) {
+      history.push("/first-research");
+    }
   });
 
+
+/**
+  useEffect(() => {
+    window.addEventListener("keydown", handlePress);
+    console.log("inside useEffect Example Audio");
+
+    return function cleanupListener() {
+      window.removeEventListener("keydown", handlePress);
+    };
+  });
+
+   */
   return (
-    <div> 
-      <h1>Example Audio page</h1>
-      <div>
-      <PlayerSound url={exampleAudioMp3[0]}/>
-      <button onClick ={handleCountinue}>continue</button>  
-      <button onClick ={handleBack}>back</button>  
-      </div>      
-    </div>
+    <>
+      {visibleCunter ? (
+        <div className="container">
+          <h1>הדגמה תחל בעוד</h1>
+          <Counter setVisibleCounter={setVisibleCounter} />
+        </div>
+      ) : (
+        <div className="container">
+          <PlayerSound
+            exampleAudioMp3={exampleAudioMp3}
+            index={index}
+            setIndex={setIndex}
+            dispatch={dispatch}
+          />
+
+          <h4>לחץ ימני = יוסי</h4>
+          <h4>לחץ שמאלי = בני</h4>
+          <div>
+            <button onClick={handleCountinue}>continue</button>
+            <button onClick={handleBack}>back</button>
+          </div>
+        </div>
+      )}
+    </>
   );
-}
+};
 
 export default ExampleAudio;

@@ -1,5 +1,5 @@
 import React,{useEffect,useState,useRef} from 'react';
-
+import './Counter.css';
 
 const Counter = ({setVisibleCounter})=>{
   const [timer, setTimer] = useState(3);
@@ -23,8 +23,8 @@ const Counter = ({setVisibleCounter})=>{
   }, [timer]);
 
   return (
-    <div >
-      <div>Time left : {timer} </div>
+    <div className="container" >
+      <div style={{fontSize:50}}> {timer} </div>
     </div>
   );
 }

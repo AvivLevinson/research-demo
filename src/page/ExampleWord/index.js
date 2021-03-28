@@ -23,7 +23,7 @@ const ExampleWord = () => {
   console.log(state);
   
   const handleCountinue = () => {
-    history.push("/example-audio");
+    history.push("/second-instruction");
   };
 
   const handleBack = () => {
@@ -34,15 +34,10 @@ const ExampleWord = () => {
     console.log('useEffect Example Page');
 
     if (index  === 5) {
-      history.push("/example-audio");
+      history.push("/second-instruction");
     }
   });
 
-
-
-
-  
-  
 
 /**  const handleEvent = (event) => {
     const { key, end } = handlePress(event);
