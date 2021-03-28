@@ -12,16 +12,15 @@ const PlayerSound = ({ exampleAudioMp3, index, setIndex, dispatch }) => {
 
   const myStateRef = useRef(start);
   const myIndexRef = useRef(index);
-  const myAudioRef = useRef(audio);
+  //const myAudioRef = useRef(audio);
 
-  myAudioRef.current = audio;
+  //myAudioRef.current = audio;
   myIndexRef.current = index;
   myStateRef.current = start;
 
 
 
   const handleEvent = (event) => {
-    const audio = myAudioRef.current;
     const index = myIndexRef.current;
     const start =  myStateRef.current;
     const { key, end } = handlePress(event);
@@ -36,11 +35,12 @@ const PlayerSound = ({ exampleAudioMp3, index, setIndex, dispatch }) => {
         time: seconds
       }
     });
-    audio.pause();
+
+
     setIndex((prev) => {
       myIndexRef.current =  prev +1;
-      
-      return prev +1});
+      return prev +1
+    });
 
     setrender(true);
     // set timer 0.5 second
@@ -50,6 +50,8 @@ const PlayerSound = ({ exampleAudioMp3, index, setIndex, dispatch }) => {
       });
     }, 500);*/ 
   };
+
+
 
 useEffect(() => {
   console.log('first useEffect');  
@@ -61,7 +63,34 @@ useEffect(() => {
     };
   }, []);
 
+  useEffect(()=>{
+    console.log('second useEffect');
+    audio.play()
+    .catch(error => {
+      console.log(error);
+    })
 
+    return function cleanupListener() {
+      console.log("clean up audio.pause()");
+      audio.pause();
+    };
+  });
+
+/**
+  useEffect(()=>{
+    console.log('second useEffect');
+    const audioEl = document.getElementsByClassName("audio-element")[0]
+    audioEl.play()
+
+    return function cleanupListener() {
+      console.log("clean up audio.pause()");
+      console.log(audioEl);
+      audioEl.pause();
+  
+  }});
+
+   */
+  /**
   useEffect(()=>{
     console.log('second useEffect');
     audio.play();
@@ -71,11 +100,14 @@ useEffect(() => {
       audio.pause();
     };
   });
-
+ */
   return (
     <div>
-      <p>play audio</p>
-    </div>
+    <audio className="audio-element" controls>
+      <source></source>
+    </audio>
+    <p>{index}</p>
+  </div>
   );
 };
 

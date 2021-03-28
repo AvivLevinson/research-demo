@@ -27,7 +27,7 @@ const ExampleAudio = () => {
   };
 
   useEffect(()=>{
-    console.log('useEffect Example Page');
+    console.log('useEffect Example Audio page');
 
     if (index  === 5) {
       history.push("/first-research");
