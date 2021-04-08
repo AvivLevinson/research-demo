@@ -23,7 +23,7 @@ const ExampleWord = () => {
   console.log(state);
   
   const handleCountinue = () => {
-    history.push("/second-instruction");
+    history.push("/first-research");
   };
 
   const handleBack = () => {

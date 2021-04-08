@@ -19,7 +19,7 @@ const ExampleAudio = () => {
   console.log(state);
 
   const handleCountinue = () => {
-    history.push("/first-research");
+    history.push("/second-research");
   };
 
   const handleBack = () => {
@@ -30,7 +30,7 @@ const ExampleAudio = () => {
     console.log('useEffect Example Audio page');
 
     if (index  === 5) {
-      history.push("/first-research");
+      history.push("/second-research");
     }
   });
 

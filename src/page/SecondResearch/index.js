@@ -2,11 +2,11 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 
-const FirstResearch = ()=>{
+const SecondResearch = ()=>{
   const history = useHistory();
 
   const handleCountinue = ()=>{
-    history.push('/second-instruction');
+    history.push('/form');
 
   }
 
@@ -16,7 +16,7 @@ const FirstResearch = ()=>{
 
   return (
     <div> 
-      <h1>FirstResearch page</h1>
+      <h1>Second Research page </h1>
 
       
       
@@ -28,4 +28,4 @@ const FirstResearch = ()=>{
   );
 }
 
-export default FirstResearch;
+export default SecondResearch;
