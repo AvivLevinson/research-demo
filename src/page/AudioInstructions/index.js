@@ -1,9 +1,9 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import './SecondInstructions.css'
+import './AudioInstructions.css'
 
-const SecondInstructions = ()=>{
+const AudioInstructions = ()=>{
   const history = useHistory();
 
   const handleCountinue = ()=>{
@@ -34,4 +34,4 @@ const SecondInstructions = ()=>{
   );
 }
 
-export default SecondInstructions;
+export default AudioInstructions;

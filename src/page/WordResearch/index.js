@@ -1,12 +1,21 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
+import {useData} from '../../context/DataContext'
 
-const SecondResearch = ()=>{
+
+const WordResearch = ()=>{
   const history = useHistory();
+  const {randomAction} = useData();
+
 
   const handleCountinue = ()=>{
-    history.push('/form');
+    if(randomAction.randomNumber === 0){
+      history.push('/audio-instruction');
+    } else{
+      history.push('/form');
+    }
+
 
   }
 
@@ -28,4 +37,4 @@ const SecondResearch = ()=>{
   );
 }
 
-export default SecondResearch;
+export default WordResearch;

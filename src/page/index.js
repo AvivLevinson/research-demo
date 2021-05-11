@@ -1,26 +1,23 @@
 
 import FormPage from './FormPage';
 
-import SecondResearch from './SecondResearch';
+import AudioResearch from './AudioResearch';
 import ExampleAudio from './ExampleAudio';
-import SecondInstructions from './SecondInstructions';
+import AudioInstructions from './AudioInstructions';
 
-import FirstResearch from './FirstResearch'; 
+import WordResearch from './WordResearch'; 
 import ExampleWord from './ExampleWord';
-import FirstInstructions from './FirstInstructions';
+import WordInstructions from './WordInstructions';
 import Home from './Home';
 
 
 export {
   Home,
-  FirstInstructions,
+  WordInstructions,
   ExampleWord,
-  FirstResearch,
-
-  
-  SecondInstructions,
+  WordResearch,
+  AudioInstructions,
   ExampleAudio,
-  SecondResearch,
-
+  AudioResearch,
   FormPage
 }
