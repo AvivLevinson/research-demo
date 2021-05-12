@@ -29,7 +29,7 @@ const ExampleAudio = () => {
   useEffect(()=>{
     console.log('useEffect Example Audio page');
 
-    if (index  === 5) {
+    if (index  ===6) {
       history.push("/second-research");
     }
   });

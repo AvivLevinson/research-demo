@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {useData} from '../../context/DataContext'
@@ -12,13 +12,14 @@ const WordResearch = ()=>{
   const [visibleCunter, setVisibleCounter] = useState(true);
   
   const {randomAction,setNewResult, data} = useData();
+  
   const {words} = data;
   const history = useHistory();
 
 
 
   const handleCountinue = ()=>{
-    if(randomAction.randomNumber === 0){
+    if(!randomAction.randomNumber){
       history.push('/audio-instruction');
     } else{
       history.push('/form');
@@ -30,6 +31,14 @@ const WordResearch = ()=>{
   const handleBack = ()=>{
     history.goBack();
   }
+
+
+  useEffect(()=>{
+    if(index+1 === 40 ){
+      handleCountinue();
+
+    }
+  },[index]);
 
   return (
     <div> 

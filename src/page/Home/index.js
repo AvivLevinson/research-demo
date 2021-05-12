@@ -10,16 +10,15 @@ import { useHistory } from "react-router-dom";
 
 const Home = () => {
   const history = useHistory();
-  const {randomNumber, handAction} = useData();
+  const {randomAction} = useData();
 
   const handleCountinue = () => {
-    console.log(' rand: ', randomNumber);
+    console.log(' rand: ', randomAction.randomNumber);
 //(randomAction.randomNumber === 1 
-    let number =0 ;
-    if(number===1 ){
+    if(randomAction.randomNumber ){
       history.push("/audio-instruction");
     } else {
-      // number is 0 
+      // randomAction.randomNumber
       history.push("/word-instruction");
     }
     

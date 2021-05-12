@@ -24,7 +24,8 @@ const Word = ({ words, index, setIndex, setNewResult=false }) => {
   myIndexRef.current = index;
   myStateRef.current = start;
   myTrialNumberRef.current = trial;
-  
+
+
   const mystyle  ={
     color:words[index].color,
     fontSize: 50,
@@ -48,14 +49,14 @@ const Word = ({ words, index, setIndex, setNewResult=false }) => {
       CorrectKey:words[index].correctKey,
       ParticipantKey:key,
       RT:seconds,
-      catgory: words[index].catgory,
+      catagory: words[index].catagory,
       stimuli: words[index].word,
       wordsColorOrMen:words[index].color,
       trial:trial
 
     }
 
-    console.log(resultReserach)
+    setNewResult(resultReserach);
     
     setIndex((prev) => {
       myIndexRef.current =  prev +1;
