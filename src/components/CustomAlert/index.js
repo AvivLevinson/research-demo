@@ -1,11 +1,10 @@
 import React from "react";
-import Alert from "react-bootstrap/Alert";
+import {Alert} from "react-bootstrap";
 
-const CustomAlert = ({ showAlert }) => {
+const CustomAlert = () => {
   return (
-    <>
-      {showAlert ? (
-        <Alert variant="danger" dismissible>
+
+        <Alert variant="danger" >
           <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
           <p>
             Change this and that and try again. Duis mollis, est non commodo
@@ -13,10 +12,7 @@ const CustomAlert = ({ showAlert }) => {
             Cras mattis consectetur purus sit amet fermentum.
           </p>
         </Alert>
-      ) : (
-        <></>
-      )}
-    </>
+
   );
 };
 

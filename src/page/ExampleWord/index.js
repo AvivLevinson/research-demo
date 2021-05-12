@@ -4,23 +4,19 @@ import './ExampleWord.css';
 
 
 import { exampleWords } from "../../constent/word";
-//import Word from "../../components/Word";
+import Word from "../../components/Word";
 import Counter from "../../components/Counter";
 
-//import reducer from '../../reducer/words/reducer.js'
+
 
 
 
 const ExampleWord = () => {
- // const [state, dispatch] = useReducer(reducer,[])
   const [visibleCunter, setVisibleCounter] = useState(true);
 
-
-  const history = useHistory();
-  //const [start, setStart] = useState(new Date().getTime());
-  //const [time, setTime] = useState(0);
   const [index, setIndex] = useState(0);
-
+  
+  const history = useHistory();
 
   
   const handleCountinue = () => {
@@ -34,8 +30,8 @@ const ExampleWord = () => {
   useEffect(()=>{
     console.log('useEffect Example Page');
 
-    if (index  === 5) {
-      history.push("/second-instruction");
+    if (index  === 6) {
+      history.push("/word-research");
     }
   });
 
@@ -76,7 +72,7 @@ const ExampleWord = () => {
 
     </div> ) : (
       <div className="container">     
-       <Word words={exampleWords} index={index} setIndex={setIndex} dispatch={dispatch}/>
+       <Word words={exampleWords} index={index} setIndex={setIndex} />
        
        <h4>לחץ ימני = אדום</h4>
        <h4>לחץ שמאלי = כחול</h4>

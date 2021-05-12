@@ -3,10 +3,10 @@ const KEY_PRESS_lEFT = 37;
 
 export default function handlePress(event) {
   const end = new Date().getTime();
-  let key = "";
+  let key = "worng";
   switch (event.keyCode) {
     case KEY_PRESS_RIGHT:
-      key = " right";
+      key = "right";
       console.log("you press right");
       break;
 
