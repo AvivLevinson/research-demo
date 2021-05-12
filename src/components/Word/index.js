@@ -6,6 +6,10 @@ import { COLOR } from "../../constent/color";
 import handlePress from "../../utils/handle-press.js";
 
 
+
+
+
+
 const randomColor = ()=>{
   return COLOR[Math.round(Math.random())];
 }
@@ -17,6 +21,7 @@ const Word = ({ words, index, setIndex, dispatch }) => {
   const [render, setrender] = useState(0);
   //const [start, setStart] = useState(new Date().getTime());
   const color = randomColor();
+
 
   const myColorRef = useRef(color);
   const myStateRef = useRef(start);
@@ -77,6 +82,7 @@ const Word = ({ words, index, setIndex, dispatch }) => {
 
   return (
     <div>
+
       <p style={mystyle}>{words[index]}</p>
     </div>
   );

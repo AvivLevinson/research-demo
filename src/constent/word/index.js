@@ -12,4 +12,4 @@ export const secondBlock = [
   'ארון','קפיצה','שכונה','רגליים','ספסל'];
 
 
-  export const exampleWords = ['עניבה','שדרה','שמלה','מעיל','קופסה'];
+  export const exampleWords = ['מחשבון','עניבה','שדרה','שמלה','מעיל','קופסה'];

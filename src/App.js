@@ -18,6 +18,8 @@ import {
 
 import { DataProvider } from "./context/DataContext";
 
+
+
 const Entry = () => {
   return (
     <Router>
@@ -49,7 +51,9 @@ export default function App() {
           let { randomNumber, handAction } = doc.data();
           console.log(randomNumber);
           console.log(handAction);
-          setRandomAction({ randomNumber, handAction });
+          changeRandomAction(randomNumber,handAction );
+          setRandomAction({ randomNumber:randomNumber
+            , handAction:handAction });
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
@@ -59,24 +63,59 @@ export default function App() {
         console.log("Error getting document:", error);
       });
 
-      changeRandomAction();
+      
   };
+/**
+  const createUser = ()=>{
+    const docUserRef = firebase.firestore().collection("users").add({user});
+  }
+  */
 
-  const changeRandomAction = () => {
-    let {randomNumber,handAction } = randomAction;
+  const readDataUser = ()=>{
+    firebase.firestore().collection("users")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            const data = JSON.stringify(doc.data());
+            console.log(data);
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    })
+  }
+
+
+
+  const changeRandomAction = (randomNumber,handAction) => {
+    let updateRandomNumber = !randomNumber;
+    let updateRandomHandAction = !handAction;
+
+    console.log('this is random number: ', randomNumber);
+    console.log('this is random handAction: ', handAction);
+
+
+    console.log('this is random updateRandomNumber: ', updateRandomNumber);
+    console.log('this is random updateRandomHandAction: ', updateRandomHandAction);
+
+    
     docRef
       .update({
-        randomNumber: !randomNumber,
-        handAction: !handAction
+        randomNumber: updateRandomNumber,
+        handAction: updateRandomHandAction
       })
       .then(() => {
         console.log("Document successfully updated!");
+        readDataUser();
       })
       .catch((error) => {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
   };
+
+
 
     useEffect(()=>{
       getRandomAction();

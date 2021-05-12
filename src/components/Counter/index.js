@@ -2,7 +2,7 @@ import React,{useEffect,useState,useRef} from 'react';
 import './Counter.css';
 
 const Counter = ({setVisibleCounter})=>{
-  const [timer, setTimer] = useState(3);
+  const [timer, setTimer] = useState(5);
   const id = useRef(null);
   const clear = () => {
     window.clearInterval(id.current);

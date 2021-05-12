@@ -1,14 +1,28 @@
 import React from "react";
 
-import "./Home.css";
+import {useData} from '../../context/DataContext';
 
+import "./Home.css";
 import { useHistory } from "react-router-dom";
+
+
+
 
 const Home = () => {
   const history = useHistory();
+  const {randomNumber, handAction} = useData();
 
   const handleCountinue = () => {
-    history.push("/instruction");
+    console.log(' rand: ', randomNumber);
+//(randomAction.randomNumber === 1 
+    let number =0 ;
+    if(number===1 ){
+      history.push("/audio-instruction");
+    } else {
+      // number is 0 
+      history.push("/word-instruction");
+    }
+    
   };
 
 

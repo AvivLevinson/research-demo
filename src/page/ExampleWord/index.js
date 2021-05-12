@@ -1,18 +1,20 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { useHistory } from "react-router-dom";
-
 import './ExampleWord.css';
 
-import { exampleWords } from "../../constent/word";
 
-import Word from "../../components/Word";
+import { exampleWords } from "../../constent/word";
+//import Word from "../../components/Word";
 import Counter from "../../components/Counter";
 
-import reducer from '../../reducer/words/reducer.js'
+//import reducer from '../../reducer/words/reducer.js'
+
+
 
 const ExampleWord = () => {
-  const [state, dispatch] = useReducer(reducer,[])
+ // const [state, dispatch] = useReducer(reducer,[])
   const [visibleCunter, setVisibleCounter] = useState(true);
+
 
   const history = useHistory();
   //const [start, setStart] = useState(new Date().getTime());
@@ -20,10 +22,9 @@ const ExampleWord = () => {
   const [index, setIndex] = useState(0);
 
 
-  console.log(state);
   
   const handleCountinue = () => {
-    history.push("/first-research");
+    history.push("/word-research");
   };
 
   const handleBack = () => {
@@ -68,6 +69,7 @@ const ExampleWord = () => {
 
   return (
     <>
+   
     {visibleCunter ? (<div className="container">
       <h1>הדגמה תחל בעוד</h1>
       < Counter setVisibleCounter={setVisibleCounter}/>

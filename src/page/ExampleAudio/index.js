@@ -19,7 +19,7 @@ const ExampleAudio = () => {
   console.log(state);
 
   const handleCountinue = () => {
-    history.push("/second-research");
+    history.push("/audio-research");
   };
 
   const handleBack = () => {
