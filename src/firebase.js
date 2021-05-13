@@ -1,10 +1,11 @@
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 import "firebase/firestore";
-
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD3ui33GOO6GhuvuKiVehxWWGWUaR1rCXo",
   authDomain: "research-client.firebaseapp.com",
+  databaseURL: "https://research-client-default-rtdb.firebaseio.com",
   projectId: "research-client",
   storageBucket: "research-client.appspot.com",
   messagingSenderId: "844553442309",
@@ -12,6 +13,6 @@ const firebaseConfig = {
   measurementId: "G-9C20T7915N"
 };
 
-firebase.initializeApp(firebaseConfig);
+export const app = firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+

@@ -64,7 +64,7 @@ const shuffle = (array)=>{
   return array;
 }
 
-// check witch block the word is include 
+// check Which block the word is include 
 const checkCatagory = (word)=>{
   let isWordEmotional = WORD_EMOTIONAL.includes(word);
   let isWordNetural = WORD_NEUTRAL.includes(word);
@@ -130,6 +130,9 @@ const createExampleWords = (wordsData)=>{
   } 
   return example;
 }
+
+
+
 
   return(
     <DataContext.Provider value={{
